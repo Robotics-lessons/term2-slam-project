@@ -1,0 +1,19 @@
+controller_frequency: 5.0    # (double, default 20.0), Need to move out from TrajectoryPlannerROS section
+                             # for removing "Control loop missed its desired rate of 20.0000Hz... the loop actually took" message
+
+TrajectoryPlannerROS:
+
+  holonomic_robot: false
+
+  yaw_goal_tolerance: 0.05      # The tolerance in radians for the controller in yaw/rotation when achieving its goal default 0.05 radians
+  xy_goal_tolerance : 0.05      # The tolerance in meters for the controller in the x & y distance when achieving a goal default 0.1 meters
+  latch_xy_goal_tolerance: false # (bool, default: false) If goal tolerance is latched, if the robot ever reaches the goal xy location it will simply rotate in place, even if it ends up outside the goal tolerance while it is doing so. 
+  sim_time: 3.0                 # default 1.0 seconds
+  meter_scoring: true          # scoring in meters rather than cells default false
+  pdist_scale: 0.8              # The weighting for how much the controller should stay close to the path it was given default 0.6
+  gdist_scale: 1.0              # The weighting for how much the controller should attempt to reach its local goal, also controls speed default 0.8
+  publish_cost_grid_pc: false   # (bool, default false) Whether or not to publish the cost grid that the planner will use when planning. 
+  oscillation_reset_dist: 0.1   # (double, default 0.05) How far the robot must travel in meters before oscillation flags are reset
+  escape_vel: -0.1              # (double, default -0.1) Speed used for driving during escapes in meters/sec. Note that it must be negative in order for the robot to actually reverse.
+  heading_scoring_timestep: 0.8 # (double, default: 0.8) How far to look ahead in time in seconds along the simulated trajectory when using heading scoring
+

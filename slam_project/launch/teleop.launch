@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <node pkg="slam_project" type="teleop.py" name="teleop"  output="screen">
+  	<remap from="teleop/cmd_vel" to="/cmd_vel"/>
+  </node>
+</launch>
