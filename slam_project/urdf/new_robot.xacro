@@ -90,8 +90,8 @@
       </geometry>
     </visual>
 
-    <visual name="box_visua">
-      <origin rpy="0.0 0 0.0" xyz="0.04 0 0.1"/>
+    <visual name="box_visual">
+      <origin rpy="0.0 0 0.0" xyz="0.04 0 0.12"/>
       <geometry>
         <box size=".08 .2 .1"/>
       </geometry>
@@ -272,11 +272,11 @@
   </link>
 
   <gazebo reference="camera_link">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Green</material>
   </gazebo>
 
-  <joint type="continuous" name="camera_joint">
-    <origin xyz="0.18 0.0 0" rpy="0 0 0"/>
+  <joint type="fixed" name="camera_joint">
+    <origin xyz="0.04 0.0 0.2" rpy="0 0 0"/>
     <child link="camera_link"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -295,7 +295,7 @@
   </link>
 
   <joint name="camera_rgbd_joint" type="fixed">
-    <origin xyz="0 0.028 0" rpy="0 0 0" />
+    <origin xyz="0.04 0 0.26" rpy="0 0 0" />
     <parent link="camera_link" />
     <child link="camera_rgbd_frame" />
   </joint>
@@ -337,7 +337,7 @@
   </link>
 
   <joint type="continuous" name="hokuyo_joint">
-    <origin xyz="0.17 0.0 0.1" rpy="0 0 0"/>
+    <origin xyz="0.16 0.0 0.1" rpy="0 0 0"/>
     <child link="hokuyo"/>
     <parent link="chassis"/>
     <axis xyz="0.0 1.0 0.0" rpy="0 0 0"/>
