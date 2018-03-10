@@ -25,4 +25,4 @@ roslaunch slam_project world2.launch  under ~/catkin_ws folder
 
 #### Robot tf tree diagram
 
-<img src="images/view_frame_w1.PNG" width="60%" height="60%" title="tf tree diagram">
+<img src="images/frames.pdf" width="60%" height="60%" title="tf tree diagram">
