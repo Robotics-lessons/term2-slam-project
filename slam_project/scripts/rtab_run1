@@ -23,7 +23,7 @@ read -p 'Enter target world destination or d for default: ' input_choice
 
 if [ “$input_choice” = “d” ]
 then
- x-terminal-emulator -x roslaunch slam_project world1.launch  2>/dev/null &
+ x-terminal-emulator -x roslaunch slam_project world2.launch  2>/dev/null &
 
 else
  x-terminal-emulator -x roslaunch slam_project world.launch world_file:=$input_choice 2>/dev/null &
