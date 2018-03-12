@@ -1,0 +1,71 @@
+$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/src
+$ catkin_init_workspace
+$ cd ..
+$ catkin_make
+
+$ sudo apt-get update
+
+$ cd ~/catkin_ws/src/
+$ catkin_create_pkg slam_project <my project name>
+
+$cd slam_project, <my project name>
+
+$ mkdir launch
+
+$ mkdir worlds
+
+$sudo apt-get install ros-kinetic-rtabmap ros-kinetic-rtabmap-ros && sudo apt-get remove ros-kinetic-rtabmap ros-kinetic-rtabmap-ros
+
+$cd ~ && git clone https://github.com/introlab/rtabmap.git rtabmap && cd rtabmap/build && cmake .. && make && sudo make install
+
+$curl -L https://s3-us-west-1.amazonaws.com/udacity-robotics/Term+2+Resources/P3+Resources/models.tar.gz | tar zx -C ~/.gazebo/
+
+copy all folders from new_robot to current folders
+
+cd ~/catkin_ws/src && git clone https://github.com/introlab/rtabmap_ros
+
+Download :
+wget https://s3-us-west-1.amazonaws.com/udacity-robotics/Term+2+Resources/P3+Resources/Student+Project+Materials.zip
+
+
+Execute command:
+================
+~/catkin_ws/src/slam_project/scripts/rtab_run
+
+roslaunch slam_project world.launch world_file:=/home/robond/catkin_ws/src/slam_project/worlds/kitchen_dining.world
+
+roslaunch slam_project teleop.launch
+
+roslaunch slam_project mapping.launch
+
+roslaunch slam_project rviz.launch
+
+Debug command:
+==============
+rosrun rqt_graph rqt_graph
+
+roswtf
+
+rosrun tf view_frames
+
+rostopic list
+
+rtabmap-databaseViewer ~/.ros/rtabmap.db
+
+rosrun rtabmap_ros rtabmap --params | grep Proximity
+
+Build a new map:
+================
+
+roslaunch slam_project world1.launch
+
+
+Fix error command:
+==================
+Fixed this error: 
+rtabmap-databaseViewer: error while loading shared libraries: librtabmap_gui.so.0.15: cannot open shared object file: No such file or directory
+
+sudo ldconfig
+
+
