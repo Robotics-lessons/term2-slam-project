@@ -3,6 +3,8 @@ $ cd ~/catkin_ws/src
 $ catkin_init_workspace
 $ cd ..
 $ catkin_make
+(If this error: "ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'"
+use this: $pip install catkin_pkg to fix it)
 
 $ sudo apt-get update
 
@@ -28,6 +30,9 @@ cd ~/catkin_ws/src && git clone https://github.com/introlab/rtabmap_ros
 Download :
 wget https://s3-us-west-1.amazonaws.com/udacity-robotics/Term+2+Resources/P3+Resources/Student+Project+Materials.zip
 
+$catkin_make
+($pip install rospkg, if you see error: "ModuleNotFoundError: No module named 'rospkg'")
+($pip uninstall em && pip install empy, if you see error: "ModuleNotFoundError: No module named 'em'")
 
 Execute command:
 ================
