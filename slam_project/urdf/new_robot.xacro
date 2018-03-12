@@ -279,9 +279,6 @@
     <origin xyz="0.04 0.0 0.2" rpy="0 0 0"/>
     <child link="camera_link"/>
     <parent link="chassis"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
-    <limit effort="10000" velocity="1000"/>
-    <joint_properties damping="1.0" friction="1.0"/>
   </joint>
 
   <link name="camera_rgbd_frame">
@@ -295,7 +292,8 @@
   </link>
 
   <joint name="camera_rgbd_joint" type="fixed">
-    <origin xyz="0.04 0 0.26" rpy="0 0 0" />
+    <origin xyz="0.04 0 0.26" rpy="-1.57  0.0 -1.57" />
+       <!--origin xyz="0.04 0 0.26" rpy="0 0 0" /-->
     <parent link="camera_link" />
     <child link="camera_rgbd_frame" />
   </joint>
