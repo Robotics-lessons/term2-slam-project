@@ -54,6 +54,8 @@ roswtf
 
 rosrun tf view_frames
 
+rqt_console
+
 rostopic list
 
 rtabmap-databaseViewer ~/.ros/rtabmap.db
