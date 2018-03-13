@@ -36,7 +36,9 @@ $catkin_make
 
 Execute command:
 ================
-~/catkin_ws/src/slam_project/scripts/rtab_run
+~/catkin_ws/src/slam_project/scripts/rtab_run  (For kitchen and dinning world)
+
+~/catkin_ws/src/slam_project/scripts/rtab_run1  (For rooms and objects world)
 
 roslaunch slam_project world.launch world_file:=/home/robond/catkin_ws/src/slam_project/worlds/kitchen_dining.world
 
@@ -55,6 +57,8 @@ roswtf
 rosrun tf view_frames
 
 rqt_console
+
+rqt_image_view
 
 rostopic list
 
