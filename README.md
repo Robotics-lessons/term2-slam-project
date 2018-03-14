@@ -110,15 +110,15 @@ This ROS includes Python (2.7), Gazebo (7.10.0) and RViz (1.12.15) packages.
 2. Using URDF (Unified Robot Description Format) to create the robot model which includes pose, inertial, collision and visual data.  
 Two sensors - a RGB-D camera and a laser rangefinder (Hokuyo)[1] was added in this URDF model.
 
-<img src="images/view_frame_w1.PNG" width="30%" height="30%" title="tf tree">
+<img src="images/view_frame_w1.PNG" width="50%" height="50%" title="tf tree"> <img src="images/slam_proj_w1.png " width="50%" height="50%" title="Topic Connection">
 
 3. The Kitchen-Dinning map model is used in first part of the project, 
 
-<img src="images/kitchen_dining_3dw.PNG" width="30%" height="30%" title="Kitchen Dinning ">
+<img src="images/kitchen_dining_3dw.PNG" width="50%" height="50%" title="Kitchen Dinning ">
 
 and the created map model is called rooms-objects model.
 
-<img src="images/slam_new_3d-w1.PNG" width="30%" height="30%" title="Rooms Objects">
+<img src="images/slam_new_3d-w1.PNG" width="50%" height="50%" title="Rooms Objects">
 
 4. RTAB-Map (Real-Time Appearance-Based Mapping) approach based on a global loop closure detector with real-time constraints. It is used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation.
 
