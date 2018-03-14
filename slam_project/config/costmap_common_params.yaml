@@ -1,9 +1,9 @@
 map_type: costmap
 
 obstacle_range: 5.0
-raytrace_range: 9.0
+raytrace_range: 3.0
 
-transform_tolerance: 0.4
+transform_tolerance: 0.2
 
 robot_radius: 0.19   # It is important that robot can turn before hit the wall. If it set to one, robot will stuck at the wall
 inflation_radius: 0.2
