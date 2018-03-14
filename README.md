@@ -37,16 +37,19 @@ The main advantage of the FastSLAM algorithm is that it uses a particle filter a
 
 Grid-based FastSLAM
 The grid mapping algorithm can model the environment using grid maps without predefining any landmark position. So by extending the FastSLAM algorithm to occupancy grid maps, it can now solve the SLAM problem in an arbitrary environment. While mapping a real-world environment, the mobile robots mostly equipped  with range sensors. The FastSLAM algorithm can be extended and solved the SLAM problem in term of grid maps.
-
-Sampling Motion-p(x_{t} | x_{t-1}^{[k]} , u_{t})p(x 
+These three different techniques are used to adapt FastSLAM to grid mapping:
+1. Sampling Motion 
+-p(x_{t} | x_{t-1}^{[k]} , u_{t})p(x 
 t
 ​	 ∣x 
 t−1
 [k]
 ​	 ,u 
 t
-​	 ): Estimates the current pose given the k-th particle previous pose and the current controls u.
-Map Estimation-p(m_{t} | z_{t}, x_{t}^{[k]} , m_{t-1}^{[k]})p(m 
+​	 ): 
+Estimates the current pose given the k-th particle previous pose and the current controls u.
+2. Map Estimation
+-p(m_{t} | z_{t}, x_{t}^{[k]} , m_{t-1}^{[k]})p(m 
 t
 ​	 ∣z 
 t
@@ -56,15 +59,18 @@ t
 ​	 ,m 
 t−1
 [k]
-​	 ): Estimates the current map given the current measurements, the current k-th particle pose, and the previous k-th particle map
-Importance Weight-p(z_{t} | x_{t}^{[k]} , m^{[k]})p(z 
+​	 ): 
+Estimates the current map given the current measurements, the current k-th particle pose, and the previous k-th particle map
+3. Importance Weight
+-p(z_{t} | x_{t}^{[k]} , m^{[k]})p(z 
 t
 ​	 ∣x 
 t
 [k]
 ​	 ,m 
 [k]
- ): Estimates the current likelihood of the measurement given the current k-th particle pose and the current k-th particle map.
+ ): 
+ Estimates the current likelihood of the measurement given the current k-th particle pose and the current k-th particle map.
 
 The robot mapping performance is related a running environment directly, it is so important which hardware and virtual machine configuration were used in this project.
 
