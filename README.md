@@ -71,20 +71,8 @@ Two sensors - a camera and a laser rangefinder (Hokuyo)[1] was added in this URD
 
 4. RTAB-Map (Real-Time Appearance-Based Mapping) approach based on a global loop closure detector with real-time constraints. It is used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation.
 
-5. A C++ code  was used to send a target position to move_base action server.
+5. A Python code - teleop.py  was used to send a moving direction messages to the robot.
 
-####  Kalman Filters and Monte Carlo Simulations are two most common algorithms for robot localization:
-1. Kalman Filters and EKF
-  The algorithm works in a two-step process. In the prediction step, the Kalman filter produces estimates of the current state variables, along with their uncertainties. Once the outcome of the next measurement (necessarily corrupted with some amount of error, including random noise) is observed, these estimates are updated using a weighted average, with more weight being given to estimates with higher certainty. The algorithm is recursive. It can run in real time, using only the present input measurements and the previously calculated state and its uncertainty matrix; no additional past information is required.
-
-Using a Kalman filter does not assume that the errors are Gaussian. However, the filter yields the exact conditional probability estimate in the special case that all errors are Gaussian-distributed.
-
-Extensions and generalizations to the method have also been developed, such as the extended Kalman filter and the unscented Kalman filter which work on nonlinear systems. The underlying model is similar to a hidden Markov model except that the state space of the latent variables is continuous and all latent and observed variables have Gaussian distributions.[4].
-
-2. Monte Carlo Simulations
-Monte Carlo simulations is an algorithm for robots to localize using a particle filter. Given a map of the environment, the algorithm estimates the position and orientation of a robot as it moves and senses the environment. The algorithm uses a particle filter to represent the distribution of likely states, with each particle representing a possible state, i.e., a hypothesis of where the robot is. The algorithm typically starts with a uniform random distribution of particles over the configuration space, meaning the robot has no information about where it is and assumes it is equally likely to be at any point in space. Whenever the robot moves, it shifts the particles to predict its new state after the movement. Whenever the robot senses something, the particles are resampled based on recursive Bayesian estimation, i.e., how well the actual sensed data correlate with the predicted state. Ultimately, the particles should converge towards the actual position of the robot.[5].
-
-  ​
 
 3. Compare Monte Carlo Simulations vs. Extend Kalman Filters
 
@@ -101,20 +89,6 @@ Monte Carlo simulations is an algorithm for robots to localize using a particle 
 | Memory & Resolution Control | Yes | No |
 | Global Localization | Yes | No |
 | State Space | Multimodel Discrete | Unimodel Continuous |
-
-
-The Challenges[7]
-
-The mobile robot localization problem is to determine the pose (direction and position) of the robot given the map of the environment, sensor data, a sensor error model, move- ment data, and a movement error model. It is a very basic problem of robotics since most of robot tasks require knowl- edge of the position of the robot. There are three types of lo- calization problems in increasing order of difficulty (Thrun, Burgard, and Fox 2005).
-
-#### Local Position 
-Tracking The initial pose of the robot is assumed to be known in this type of problem. Since the un- certainties are confined to region near the actual pose, this is considered to be a local problem.
-
-#### Global Localization 
-In contrast to local position tracking, global localization assumes no knowledge of initial pose. However, it subsumes the local problem since it uses knowl- edge gained during the process to keep tracking the position. The goal of the MCL algorithm introduced in this assignment is to perform global localization.
-
-#### Kidnapped Robot Problem 
-The kidnapped robot problem arises from the movement of a successfully localized robot to a different unknown position in the environment to see if it can globally localize. Thus it is more difficult than global localization problem since the robot has a strong but wrong belief in where it is. The original MCL algorithm does not have the ability to recover from kidnapping. Such failure is also often referred to as catastrophic failure.
 
 
 
