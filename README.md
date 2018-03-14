@@ -16,7 +16,7 @@ The project focuses on the following several tasks:
 * Creating a Catkin workspace under Robot Operatiosn System (ROS) with all launch, worlds, urdf and scripts folders. Installing rtabmap package.
 * Building a mobile robot with RGBD camera and laser scanner for simulated tasks.
 * Creating a ROS package that launches a robot model in a Gazebo world and utilizes packages like rtabmap, teleop and the RViz.
-* Exploring, adding, and tuning specific parameters corresponding to each package to achieve the best possible mapping results.
+* Use debug tools to explor, add, and tune specific parameters corresponding to each package to achieve the best possible mapping results.
 
 ## Background
 Robotic mapping: the goal for an autonomous robot is to be able to construct (or use) a map or floor plan and to localize itself in it[2].
@@ -73,8 +73,14 @@ t
  ): 
  Estimates the current likelihood of the measurement given the current k-th particle pose and the current k-th particle map.
 
+
+Loop Closure is the problem of recognizing a previously-visited location and updating beliefs accordingly. This can be a problem because model or algorithm errors can assign low priors to the location. Typical loop closure methods apply a second algorithm to compute some type of sensor measure similarity, and re-set the location priors when a match is detected[1].
+
 Graph-SLAM complexity is linear, according to the number of nodes, which increases according to the size of the map.
 By providing constraints associated with how many nodes are processed for loop closure by memory management, the time complexity becomes constant in RTAB-Map.
+
+RTAB-Map (Real-Time Appearance-Based Mapping) is a RGB-D Graph-Based SLAM approach based on an incremental appearance-based loop closure detector. The loop closure detector uses a bag-of-words approach to determinate how likely a new image comes from a previous location or a new location. When a loop closure hypothesis is accepted, a new constraint is added to the map’s graph, then a graph optimizer minimizes the errors in the map. A memory management approach is used to limit the number of locations used for loop closure detection and graph optimization, so that real-time constraints on large-scale environnements are always respected[3]. 
+RTAB-Map uses for odometry constrains, not for landmarks to optimize loop closure constrains. 
 
 The robot mapping performance is related a running environment directly, it is so important which hardware and virtual machine configuration were used in this project.
 
@@ -103,7 +109,7 @@ The robot mapping performance is related a running environment directly, it is s
 This ROS includes Python (2.7), Gazebo (7.10.0) and RViz (1.12.15) packages.
 
 2. Using URDF (Unified Robot Description Format) to create the robot model which includes pose, inertial, collision and visual data.  
-Two sensors - a camera and a laser rangefinder (Hokuyo)[1] was added in this URDF model.
+Two sensors - a RGB-D camera and a laser rangefinder (Hokuyo)[1] was added in this URDF model.
 
 3. The Kitchen-Dinning map model is used in first part of the project, and the second map model is created by auther which called rooms-objects model.
 
@@ -112,24 +118,6 @@ Two sensors - a camera and a laser rangefinder (Hokuyo)[1] was added in this URD
 4. RTAB-Map (Real-Time Appearance-Based Mapping) approach based on a global loop closure detector with real-time constraints. It is used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation.
 
 5. A Python code - teleop.py  was used to send a moving direction messages to the robot.
-
-
-3. Compare Monte Carlo Simulations vs. Extend Kalman Filters
-
-|    | MCL | EKF |
-| :--- | :---: | :---: |
-| Measurements | Raw Measurements | Landmarks |
-| Measurement Noise | Any | Guassian |
-| Posterior | Particles | Guassian |
-| Efficiency(memory) | OK | Good |
-| Efficency(time) | OK | Good |
-| Ease of implementation | Good | OK |
-| Resolution | OK | Good |
-| Robustness | Good | Poor |
-| Memory & Resolution Control | Yes | No |
-| Global Localization | Yes | No |
-| State Space | Multimodel Discrete | Unimodel Continuous |
-
 
 
 
@@ -251,7 +239,7 @@ Anther problem is the robot stuck on the wall in several testings. The program n
 
 [2] Wikipedia, “Robotic mapping” https://en.wikipedia.org/wiki/Robotic_mapping, 2017.
 
-[3] Wikipedia, "Kalman filter" https://en.wikipedia.org/wiki/Kalman_filter 2018
+[3] Introlab, "RTAB-Map" http://introlab.github.io/rtabmap/ 2017
 
 [4] Wikipedia, "Monte Carlo localization" https://en.wikipedia.org/wiki/Monte_Carlo_localization 2018
 
