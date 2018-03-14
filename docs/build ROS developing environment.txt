@@ -34,9 +34,19 @@ $catkin_make
 ($pip install rospkg, if you see error: "ModuleNotFoundError: No module named 'rospkg'")
 ($pip uninstall em && pip install empy, if you see error: "ModuleNotFoundError: No module named 'em'")
 
+Install command:
+================
+
+sudo apt-get update
+
+sudo apt-get install rviz
+
 Execute command:
 ================
 ~/catkin_ws/src/slam_project/scripts/rtab_run  (For kitchen and dinning world)
+
+~/udacity/catkin_ws/src/term2-slam-project/slam_project/scripts/rtab_run
+
 
 ~/catkin_ws/src/slam_project/scripts/rtab_run1  (For rooms and objects world)
 
@@ -65,6 +75,10 @@ rostopic list
 rtabmap-databaseViewer ~/.ros/rtabmap.db
 
 rosrun rtabmap_ros rtabmap --params | grep Proximity
+
+rospack find rviz
+
+nvidia-smi
 
 Build a new map:
 ================
