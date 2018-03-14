@@ -19,22 +19,24 @@ The project focuses on the following several tasks:
 * Exploring, adding, and tuning specific parameters corresponding to each package to achieve the best possible mapping results.
 
 ## Background
-Robotic mapping: the goal for an autonomous robot is to be able to construct (or use) a map or floor plan and to localize itself in it. It deals with the study and application of ability to construct map or floor plan by the autonomous robot and to localize itself in it[2].
+Robotic mapping: the goal for an autonomous robot is to be able to construct (or use) a map or floor plan and to localize itself in it[2].
 
-Consider a robot with an internal map of its environment. When the robot moves around, it needs to know where it is within this map. Determining its location and rotation (more generally, the pose) by using its sensor observations is known as robot localization[4].
+A robot must construct a map of the environment, while simultaneously localizing itself relative to this map. 
+This problem is more challenging than localization and mapping, since neither the map nor the robots poses are provided.
+With noise and the robots motions and measurements, the map and robots pose will be uncertain, and the errors in the robust pose estimates, map will be correlated. The accuracy of the map depends on the accuracy of the localization, and vice versa.
+SLAM is often called the chicken or the egg problem, because the map is needed for localization and the robots pose needed for mapping.
+SLAM is a really challenge but it's fundamental to mobile robotics.
+For robots to be useful in real world, they must be able to move in environments that they've never seen before.
 
-Localization involves one question: Where is the robot now? Or, robo-centrically, where am I, keeping in mind that "here" is relative to some landmark (usually the point of origin or the destination) and that you are never lost if you don't care where you are.
+SLAM algorithms generally fall into five categories 
+1. Extended Kalman filter SLAM (EKF) 
+2. Sparse Extended Information Filter (SEIF)
+3. Extended Information Form (EIF)
+4. FastSLAM 
+5. GraphSLAM 
 
-Although a simple question, answering it isn't easy, as the answer is different depending on the characteristics of your robot. Localization techniques that work fine for one robot in one environment may not work well or at all in another environment. For example, localizations which work well in an outdoors environment may be useless indoors.
 
-All localization techniques generally provide two basic pieces of information:
-
-* what is the current location of the robot in some environment?
-* what is the robot's current orientation in that same environment?
-
-The first could be in the form of Cartesian or Polar coordinates or geographic latitude and longitude. The latter could be a combination of roll, pitch and yaw or a compass heading[8].
-
-The robot performance is related a running environment directly, it is so important which hardware and virtual machine configuration were used in this project.
+The robot mapping performance is related a running environment directly, it is so important which hardware and virtual machine configuration were used in this project.
 
 ### Hardware:
      Computer model: Surface Pro 4
@@ -63,11 +65,11 @@ This ROS includes Python (2.7), Gazebo (7.10.0) and RViz (1.12.15) packages.
 2. Using URDF (Unified Robot Description Format) to create the robot model which includes pose, inertial, collision and visual data.  
 Two sensors - a camera and a laser rangefinder (Hokuyo)[1] was added in this URDF model.
 
-3. A map created by Clearpath Robotics[2]  was used for both robots in the project.
+3. The Kitchen-Dinning map model is used in first part of the project, and the second map model is created by auther which called rooms-objects model.
 
 <img src="images/map.PNG" width="30%" height="30%" title="Maze Map">
 
-4. AMCL (Adaptive Monte Carlo Localization) algorithm was used to dynamically adjust the number of particles over a period of time.
+4. RTAB-Map (Real-Time Appearance-Based Mapping) approach based on a global loop closure detector with real-time constraints. It is used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation.
 
 5. A C++ code  was used to send a target position to move_base action server.
 
