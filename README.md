@@ -4,7 +4,6 @@
 ## Abstract
 This project created the 2D occupancy grid and 3D octomap from a provided kitchen-dinning and auther created rooms-objects simulated environment. It used RTAB-Map package, the best solution for simultaneous localization and mapping (SLAM) algorithm, to develop robots that can map environments in ROS. The results for both   simulated environments will be disciussed in this article.
 
-<img src="images/new_robot_result-w1.PNG" width="60%" height="60%" title="Test result">
 
 ## Introduction
 For robotic mapping and navigation fields, simultaneous localization and mapping (SLAM) is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it. While this initially appears to be a chicken-and-egg problem there are several algorithms known for solving it, at least approximately, in tractable time for certain environments. Popular approximate solution methods include the particle filter, extended Kalman filter, and GraphSLAM.
@@ -111,9 +110,15 @@ This ROS includes Python (2.7), Gazebo (7.10.0) and RViz (1.12.15) packages.
 2. Using URDF (Unified Robot Description Format) to create the robot model which includes pose, inertial, collision and visual data.  
 Two sensors - a RGB-D camera and a laser rangefinder (Hokuyo)[1] was added in this URDF model.
 
-3. The Kitchen-Dinning map model is used in first part of the project, and the second map model is created by auther which called rooms-objects model.
+<img src="images/view_frame_w1.PNG" width="30%" height="30%" title="tf tree">
 
-<img src="images/map.PNG" width="30%" height="30%" title="Maze Map">
+3. The Kitchen-Dinning map model is used in first part of the project, 
+
+<img src="images/kitchen_dining_3dw.PNG" width="30%" height="30%" title="Kitchen Dinning ">
+
+and the created map model is called rooms-objects model.
+
+<img src="images/slam_new_3d-w1.PNG" width="30%" height="30%" title="Rooms Objects">
 
 4. RTAB-Map (Real-Time Appearance-Based Mapping) approach based on a global loop closure detector with real-time constraints. It is used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation.
 
