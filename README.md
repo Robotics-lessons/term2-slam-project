@@ -21,14 +21,11 @@ The project focuses on the following several tasks:
 ## Background
 Robotic mapping: the goal for an autonomous robot is to be able to construct (or use) a map or floor plan and to localize itself in it[2].
 
-A robot must construct a map of the environment, while simultaneously localizing itself relative to this map. 
-This problem is more challenging than localization and mapping, since neither the map nor the robots poses are provided.
-With noise and the robots motions and measurements, the map and robots pose will be uncertain, and the errors in the robust pose estimates, map will be correlated. The accuracy of the map depends on the accuracy of the localization, and vice versa.
-SLAM is often called the chicken or the egg problem, because the map is needed for localization and the robots pose needed for mapping.
-SLAM is a really challenge but it's fundamental to mobile robotics.
-For robots to be useful in real world, they must be able to move in environments that they've never seen before.
+SLAM addresses the main perception problem of a robot navigating an unknown environment. While navigating the environment, the robot seeks to acquire a map thereof, and at the same time it wishes to localize itself using its map. The use of SLAM problems can be motivated in two different ways: one might be interested in detailed environment models, or one might seek to maintain an accurate sense of a mobile robot’s location. SLAM serves both of these purposes.
 
-SLAM algorithms generally fall into five categories 
+SLAM are derived: (1) the extended Kalman filter (EKF); (2) particle filtering; (3) graph optimization. 
+
+SLAM algorithms generally fall into these five categories: 
 1. Extended Kalman filter SLAM (EKF) 
 2. Sparse Extended Information Filter (SEIF)
 3. Extended Information Form (EIF)
