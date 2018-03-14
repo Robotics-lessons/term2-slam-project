@@ -19,6 +19,8 @@ The project focuses on the following several tasks:
 * Exploring, adding, and tuning specific parameters corresponding to each package to achieve the best possible mapping results.
 
 ## Background
+Robotic mapping: the goal for an autonomous robot is to be able to construct (or use) a map or floor plan and to localize itself in it. It deals with the study and application of ability to construct map or floor plan by the autonomous robot and to localize itself in it[2].
+
 Consider a robot with an internal map of its environment. When the robot moves around, it needs to know where it is within this map. Determining its location and rotation (more generally, the pose) by using its sensor observations is known as robot localization[4].
 
 Localization involves one question: Where is the robot now? Or, robo-centrically, where am I, keeping in mind that "here" is relative to some landmark (usually the point of origin or the destination) and that you are never lost if you don't care where you are.
@@ -49,7 +51,7 @@ The robot performance is related a running environment directly, it is so import
 
      Processor: 2
 
-     Memory: 8GB
+     Memory: 13.67GB
 
      Hard Disk: 40 GB
 
@@ -231,7 +233,7 @@ Anther problem is the robot stuck on the wall in several testings. The program n
 
 [1] Wikipedia, "Simultaneous localization and mapping" https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping, 2018.
 
-[2] Hokuyo, “Hokuyo laser scanner home page.” https://www.hokuyo-aut.jp, 2018.
+[2] Wikipedia, “Robotic mapping” https://en.wikipedia.org/wiki/Robotic_mapping, 2017.
 
 [3] Wikipedia, "Kalman filter" https://en.wikipedia.org/wiki/Kalman_filter 2018
 
