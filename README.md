@@ -37,6 +37,7 @@ The main advantage of the FastSLAM algorithm is that it uses a particle filter a
 
 Grid-based FastSLAM
 The grid mapping algorithm can model the environment using grid maps without predefining any landmark position. So by extending the FastSLAM algorithm to occupancy grid maps, it can now solve the SLAM problem in an arbitrary environment. While mapping a real-world environment, the mobile robots mostly equipped  with range sensors. The FastSLAM algorithm can be extended and solved the SLAM problem in term of grid maps.
+
 These three different techniques are used to adapt FastSLAM to grid mapping:
 1. Sampling Motion 
 -p(x_{t} | x_{t-1}^{[k]} , u_{t})p(x 
@@ -71,6 +72,9 @@ t
 [k]
  ): 
  Estimates the current likelihood of the measurement given the current k-th particle pose and the current k-th particle map.
+
+Graph-SLAM complexity is linear, according to the number of nodes, which increases according to the size of the map.
+By providing constraints associated with how many nodes are processed for loop closure by memory management, the time complexity becomes constant in RTAB-Map.
 
 The robot mapping performance is related a running environment directly, it is so important which hardware and virtual machine configuration were used in this project.
 
