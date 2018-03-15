@@ -107,10 +107,13 @@ The robot mapping performance is related a running environment directly, it is s
 1. Using an Udacity ROS (Kinetic) package to create a robot simulation environment on VMWare machine. 
 This ROS includes Python (2.7), Gazebo (7.10.0) and RViz (1.12.15) packages.
 
+<img src="images/robot-w1.PNG" width="50%" height="50%" title="Robot"> 
+
 2. Using URDF (Unified Robot Description Format) to create the robot model which includes pose, inertial, collision and visual data.  
 Two sensors - a RGB-D camera and a laser rangefinder (Hokuyo)[1] was added in this URDF model.
 
-<img src="images/view_frame_w1.PNG" width="50%" height="50%" title="tf tree"> <img src="images/slam_proj_w1.png " width="50%" height="50%" title="Topic Connection">
+<img src="images/view_frame_w1.PNG" width="50%" height="50%" title="tf tree"> 
+<img src="images/slam_proj_w1.png " width="50%" height="50%" title="Topic Connection">
 
 3. The Kitchen-Dinning map model is used in first part of the project, 
 
