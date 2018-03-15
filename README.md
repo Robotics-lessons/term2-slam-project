@@ -258,7 +258,7 @@ Same robot navigated two different maps to generate 2D/3D maps.
 
 | Kitchen Dinning | Rooms Objects |
 | :---: | :---: |
-| <img src="images/kitchen_dining_3dw.PNG" width="40%" height="40%" title="Kitchen Dinning "> | <img src="images/slam_new_3d-w1.PNG" width="40%" height="40%" title="Rooms Objects"> |
+| <img src="images/kitchen_dining_3dw.PNG" width="60%" height="40%" title="Kitchen Dinning "> | <img src="images/slam_new_3d-w1.PNG" width="60%" height="40%" title="Rooms Objects"> |
 
 ### Testing results
 #### A robot navigated in two maps and generated .
