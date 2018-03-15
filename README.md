@@ -170,8 +170,9 @@ It stores these world files:
 
 #### 2. Luanch folder
 It stores these launch files: 
-    I. world.launch, world2.launch: 
 
+  I. world.launch, world2.launch: 
+    
         <launch>
           <include file="$(find slam_project)/launch/robot_description.launch"/>
             <arg name="world" default="empty"/> 
@@ -194,7 +195,7 @@ It stores these launch files:
         </launch>
 
 
-    II. mapping.launch 
+  II. mapping.launch 
     
         <launch>
           <arg name="database_path"     default="rtabmap.db"/>
@@ -252,8 +253,20 @@ It stores these launch files:
        </launch>
  
  
-    III. teleop.launch 
-    IV. rviz.launch:
+  III. teleop.launch 
+  
+      <launch>
+        <node pkg="slam_project" type="teleop.py" name="teleop"  output="screen">
+  	       <remap from="teleop/cmd_vel" to="/cmd_vel"/>
+        </node>
+      </launch>
+      
+      
+  IV. rviz.launch:
+  
+     <launch>
+       <node name="rviz" pkg="rviz" type="rviz" args="-d $(find slam_project)/launch/config/robot_slam.rviz"/>
+     </launch>
 
 
 #### 3. urdf folder
