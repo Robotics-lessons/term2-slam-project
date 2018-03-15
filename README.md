@@ -273,7 +273,9 @@ It stores these launch files:
 It stores the robot xacro and gazebo files: new_robot.xacro and slam_project.gazebo.
 
 #### 4. scripts folder
-It stores these shell script files: rtab_run and rtab_run.
+It stores these shell script files: 
+  I. rtab_run: a shell script to launch kitchen-dinning world
+  II. rtab_run1: a shell script to launch rooms-objects world
 
 #### 5. meshes folder
 It stores the laser and RBG-D camera dae files: hokuyo.dae and kinect.dae 
