@@ -171,28 +171,28 @@ It stores these world files:
 #### 2. Luanch folder
 It stores these launch files: 
     I. world.launch, world2.launch: 
-    ````
-<launch>
-  <include file="$(find slam_project)/launch/robot_description.launch"/>
-  <arg name="world" default="empty"/> 
-  <arg name="paused" default="false"/>
-  <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="true"/>
-  <arg name="headless" default="false"/>
-  <arg name="debug" default="false"/>
 
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <!--arg name="world_name" value="$(find slam_project)/worlds/new_building.world"/-->
-    <arg name="paused" value="$(arg paused)"/>
-    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="gui" value="$(arg gui)"/>
-    <arg name="headless" value="$(arg headless)"/>
-    <arg name="debug" value="$(arg debug)"/>
-  </include>
+        <launch>
+          <include file="$(find slam_project)/launch/robot_description.launch"/>
+            <arg name="world" default="empty"/> 
+            <arg name="paused" default="false"/>
+            <arg name="use_sim_time" default="true"/>
+            <arg name="gui" default="true"/>
+            <arg name="headless" default="false"/>
+            <arg name="debug" default="false"/>
 
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model slam_project"/>
-</launch>
-    ````
+          <include file="$(find gazebo_ros)/launch/empty_world.launch">
+            <!--arg name="world_name" value="$(find slam_project)/worlds/new_building.world"/-->
+            <arg name="paused" value="$(arg paused)"/>
+            <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+            <arg name="gui" value="$(arg gui)"/>
+            <arg name="headless" value="$(arg headless)"/>
+            <arg name="debug" value="$(arg debug)"/>
+          </include>
+
+          <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model slam_project"/>
+        </launch>
+
     II. mapping.launch 
     III. teleop.launch 
     IV. rviz.launch:
