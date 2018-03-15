@@ -115,9 +115,9 @@ Two sensors - a RGB-D camera and a laser rangefinder (Hokuyo)[1] was added in th
 <img src="images/view_frame_w1.PNG" width="50%" height="50%" title="tf tree"> 
 <img src="images/slam_proj_w1.png " width="50%" height="50%" title="Topic Connection">
 
-3. The Kitchen-Dinning map model is used in first part of the project, 
+3. The Kitchen-Dining map model is used in first part of the project, 
 
-<img src="images/kitchen_dining_3dw.PNG" width="50%" height="50%" title="Kitchen Dinning ">
+<img src="images/kitchen_dining_3dw.PNG" width="50%" height="50%" title="Kitchen Dining ">
 
 and the created map model is called rooms-objects model.
 
@@ -256,18 +256,18 @@ It stores the laser and RBG-D camera dae files: hokuyo.dae and kinect.dae
 ### Testing scenario:
 Same robot navigated two different maps to generate 2D/3D maps.
 
-| Kitchen Dinning | Rooms Objects |
+| Kitchen Dining | Rooms Objects |
 | :---: | :---: |
 | <img src="images/kitchen_dining_3dw.PNG" width="60%" height="40%" title="Kitchen Dinning "> | <img src="images/slam_new_3d-w1.PNG" width="60%" height="40%" title="Rooms Objects"> |
 
 ### Testing results
 #### A robot navigated in two maps and generated .
-| | udacity_bot | new_robot |
+| | Kitchen Dining | Rooms Objects |
 | :---: | :---: | :---: |
-| Go straight | <img src="images/udacity_robot_w01.PNG" width="60%" height="24%" title="Go udacity_bot"> | <img src="images/new_robot_w02.PNG" width="50%" height="16%" title="Go new_robot"> |
-| Make a turn | <img src="images/udacity_robot_w02.PNG" width="60%" height="24%" title="Make a turn udacity_bot"> | <img src="images/new_robot_w04.PNG" width="50%" height="16%" title="Make a turn new_robot"> |
-| Arrived target | <img src="images/udacity_robot_w04.PNG" width="60%" height="24%" title="Arrived target udacity_bot"> | <img src="images/new_robot_w_result.PNG" width="50%" height="16%" title="Arrived target new robot"> |
-| Average Time | 6 -7 munites | 4 -5 munites |
+| Neighbor | <img src="images/udacity_robot_w01.PNG" width="60%" height="24%" title="Go udacity_bot"> | <img src="images/new_robot_w02.PNG" width="50%" height="16%" title="Go new_robot"> |
+| Global Loop closure | <img src="images/udacity_robot_w02.PNG" width="60%" height="24%" title="Make a turn udacity_bot"> | <img src="images/new_robot_w04.PNG" width="50%" height="16%" title="Make a turn new_robot"> |
+| Local loop closure by space | <img src="images/udacity_robot_w04.PNG" width="60%" height="24%" title="Arrived target udacity_bot"> | <img src="images/new_robot_w_result.PNG" width="50%" height="16%" title="Arrived target new robot"> |
+| Prior link | 6 -7 munites | 4 -5 munites |
 
 The navigation trajectory for both robots is a green line route, the robots arrived to the goal in the end. 
 The problem is that robots need to go up then make a cycle turn first in the map (Figure 1) and this cycle turn routing wasted time.
