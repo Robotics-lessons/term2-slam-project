@@ -129,34 +129,6 @@ and the created map model is called rooms-objects model.
 
 
 
-## Results
-### Testing scenario:
-Both robots used the same map with same starting (0 0 -0.785) and target (0.995 -2.99 0) position.
-
-| udacity_bot | new_robot |
-| :---: | :---: |
-| <img src="images/udacity_robot_w00.PNG" width="60%" height="30%" title="Starting udacity_bot"> | <img src="images/new_robot_w01.PNG" width="50%" height="25%" title="Starting new_robot"> |
-
-### Testing results
-#### Both robots navigated in map well and could arrive to the target position within reasonable time.
-| | udacity_bot | new_robot |
-| :---: | :---: | :---: |
-| Go straight | <img src="images/udacity_robot_w01.PNG" width="60%" height="24%" title="Go udacity_bot"> | <img src="images/new_robot_w02.PNG" width="50%" height="16%" title="Go new_robot"> |
-| Make a turn | <img src="images/udacity_robot_w02.PNG" width="60%" height="24%" title="Make a turn udacity_bot"> | <img src="images/new_robot_w04.PNG" width="50%" height="16%" title="Make a turn new_robot"> |
-| Arrived target | <img src="images/udacity_robot_w04.PNG" width="60%" height="24%" title="Arrived target udacity_bot"> | <img src="images/new_robot_w_result.PNG" width="50%" height="16%" title="Arrived target new robot"> |
-| Average Time | 6 -7 munites | 4 -5 munites |
-
-The navigation trajectory for both robots is a green line route, the robots arrived to the goal in the end. 
-The problem is that robots need to go up then make a cycle turn first in the map (Figure 1) and this cycle turn routing wasted time.
-The better navigation approach is followed red line, it goes to the target position directly.  
-Anther problem is the robot stuck on the wall in several testings. The program needs to restart to solve this issue.
-
-
-
-####  Figure 1.   <img src="images/new_map.PNG" width="50%" height="50%" title="Maze Map">
-
-
-
 
 ## Model Configuration
 
@@ -279,6 +251,33 @@ It stores these shell script files:
 
 #### 5. meshes folder
 It stores the laser and RBG-D camera dae files: hokuyo.dae and kinect.dae 
+
+## Results
+### Testing scenario:
+Same robot navigated two different maps to generate 2D/3D maps.
+
+| Kitchen Dinning | Rooms Objects |
+| :---: | :---: |
+| <img src="images/kitchen_dining_3dw.PNG" width="40%" height="40%" title="Kitchen Dinning "> | <img src="images/slam_new_3d-w1.PNG" width="40%" height="40%" title="Rooms Objects"> |
+
+### Testing results
+#### A robot navigated in two maps and generated .
+| | udacity_bot | new_robot |
+| :---: | :---: | :---: |
+| Go straight | <img src="images/udacity_robot_w01.PNG" width="60%" height="24%" title="Go udacity_bot"> | <img src="images/new_robot_w02.PNG" width="50%" height="16%" title="Go new_robot"> |
+| Make a turn | <img src="images/udacity_robot_w02.PNG" width="60%" height="24%" title="Make a turn udacity_bot"> | <img src="images/new_robot_w04.PNG" width="50%" height="16%" title="Make a turn new_robot"> |
+| Arrived target | <img src="images/udacity_robot_w04.PNG" width="60%" height="24%" title="Arrived target udacity_bot"> | <img src="images/new_robot_w_result.PNG" width="50%" height="16%" title="Arrived target new robot"> |
+| Average Time | 6 -7 munites | 4 -5 munites |
+
+The navigation trajectory for both robots is a green line route, the robots arrived to the goal in the end. 
+The problem is that robots need to go up then make a cycle turn first in the map (Figure 1) and this cycle turn routing wasted time.
+The better navigation approach is followed red line, it goes to the target position directly.  
+Anther problem is the robot stuck on the wall in several testings. The program needs to restart to solve this issue.
+
+
+
+####  Figure 1.   <img src="images/new_map.PNG" width="50%" height="50%" title="Maze Map">
+
 
 ## Discussion
 
