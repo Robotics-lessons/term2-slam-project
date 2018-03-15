@@ -259,8 +259,8 @@ Same robot navigated two different maps to generate 2D/3D maps.
 | Kitchen Dining | Rooms Objects |
 | :---: | :---: |
 | <img src="images/kitchen_dining_3dw.PNG" width="60%" height="40%" title="Kitchen Dinning "> | <img src="images/slam_new_3d-w1.PNG" width="60%" height="40%" title="Rooms Objects"> |
-| <img src="images/rviz-kitchen-dining-w1.png" width="60%" height="40%" title="Kitchen Dinning "> | <img src="images/rviz-room-object-w1.png" width="60%" height="40%" title="Rooms Objects"> |
-| <img src="images/dbView-kitchen-1.png" width="60%" height="40%" title="Kitchen Dinning "> | <img src="images/dbView-rooms-1.png" width="60%" height="40%" title="Rooms Objects"> |
+| <img src="images/rviz-kitchen-dining-w1.png" width="80%" height="40%" title="Kitchen Dinning "> | <img src="images/rviz-room-object-w1.png" width="80%" height="40%" title="Rooms Objects"> |
+| <img src="images/dbView-kitchen-1.png" width="80%" height="40%" title="Kitchen Dinning "> | <img src="images/dbView-rooms-1.png" width="80%" height="40%" title="Rooms Objects"> |
 
 
 ### Testing results
