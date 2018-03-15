@@ -266,11 +266,15 @@ Same robot navigated two different maps to generate 2D/3D maps.
 ### Testing results
 #### A robot navigated in two maps and generated .
 | | Kitchen Dining | Rooms Objects |
-| :---: | :---: | :---: |
-| Neighbor | <img src="images/udacity_robot_w01.PNG" width="60%" height="24%" title="Go udacity_bot"> | <img src="images/new_robot_w02.PNG" width="50%" height="16%" title="Go new_robot"> |
-| Global Loop closure | <img src="images/udacity_robot_w02.PNG" width="60%" height="24%" title="Make a turn udacity_bot"> | <img src="images/new_robot_w04.PNG" width="50%" height="16%" title="Make a turn new_robot"> |
-| Local loop closure by space | <img src="images/udacity_robot_w04.PNG" width="60%" height="24%" title="Arrived target udacity_bot"> | <img src="images/new_robot_w_result.PNG" width="50%" height="16%" title="Arrived target new robot"> |
-| Prior link | 6 -7 munites | 4 -5 munites |
+| :--- | :--- | :--- |
+| Path length (m) | 131.205 | 243.398 |
+| Time optimization (s) | 0.181 | 0.147 |
+| Time grid (s) | 0.072 | 0.031 |
+| Poses | 895 | 817 |
+| Neighbor | 894 | 816 |
+| Global Loop closure | 207 | 197 |
+| Local loop closure by space | 151 | 54 |
+| User loop closure | 0 | 101 |
 
 The navigation trajectory for both robots is a green line route, the robots arrived to the goal in the end. 
 The problem is that robots need to go up then make a cycle turn first in the map (Figure 1) and this cycle turn routing wasted time.
