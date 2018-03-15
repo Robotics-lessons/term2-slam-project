@@ -160,65 +160,51 @@ Anther problem is the robot stuck on the wall in several testings. The program n
 
 ## Model Configuration
 
-### These parameters were adjusted in the project to improve the robot performance:
+### Follwing folders and files used in this project:
 
- * /amcl/laser_model_type: likelihood_field_prob
- = (string, default: "likelihood_field") Which model to use, either beam, likelihood_field, or likelihood_field_prob (same as likelihood_field but incorporates the beamskip feature, if enabled)[5].
+#### 1. Worlds folder
+It stores these world files: 
+    I. kitchen_dining.world: it is Gazebo in code model package.
+    II. new_robot.world: Reused from Localization project
+    III. rooms_items.world (Room & Objects): Use Gazebo Building Editor created a new room model. 
 
-    Used likelihood_field_prob, make laser sensor has beamskip feature.
+#### 2. Luanch folder
+It stores these launch files: 
+    I. world.launch, world2.launch: 
+    ````
+<launch>
+  <include file="$(find slam_project)/launch/robot_description.launch"/>
+  <arg name="world" default="empty"/> 
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
 
- * /amcl/max_particles: 240
- =  (int, default: 5000) Maximum allowed number of particles.
- * /amcl/min_particles: 30
- = (int, default: 100) Minimum allowed number of particles[5].
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--arg name="world_name" value="$(find slam_project)/worlds/new_building.world"/-->
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
 
-    Adjusted these two value lower to reduce CPU usage and improve performance.
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model slam_project"/>
+</launch>
+    ````
+    II. mapping.launch 
+    III. teleop.launch 
+    IV. rviz.launch:
 
- * /amcl/resample_interval: 1.0
- = (int, default: 2) Number of filter updates required before resampling[5].
+#### 3. urdf folder
+It stores the robot xacro and gazebo files: new_robot.xacro and slam_project.gazebo.
 
-    Set a lower value to improve performance.
+#### 4. scripts folder
+It stores these shell script files: rtab_run and rtab_run.
 
- * /amcl/transform_tolerance: 3.2
- =  (int, default: 2) Number of filter updates required before resampling[5].
-
-    Set the value higher to improve localization accuracy.
-
- * /move_base/TrajectoryPlannerROS/sim_time: 3.0
- = (double, default: 1.0) The amount of time to forward-simulate trajectories in seconds[5].
-
-    Set higher value to speed up robot navigation.
-
- * /move_base/TrajectoryPlannerROS/xy_goal_tolerance: 0.05
- = (double, default: 0.10) The tolerance in meters for the controller in the x & y distance when achieving a goal[5].
-
-    Reduce the value to increase the challenge to achiev a goal
-
- * /move_base/controller_frequency: 5.0
- = (double, default: 20.0) The frequency at which this controller will be called in Hz. Uses searchParam to read the parameter from parent namespaces if not set in the namespace of the controller. For use with move_base, this means that you only need to set its "controller_frequency" parameter and can safely leave this one unset[5]. 
-
-    Set the lower value to eliminate the warning message "Control loop missed its desired rate of 20.0000Hz". This parameter doesn't impact robot performance, but it will reduce these unnecessary warning messages on the screen and in the log file.
-
- * /move_base/global_costmap/raytrace_range: 9.0
- * /move_base/local_costmap/raytrace_range: 9.0
- = (double, default: 3.0) The maximum range in meters at which to raytrace out obstacles from the map using sensor data[5].
-
-    Used higher value to increase sensor detecting obstacles distance
-
- * /move_base/global_costmap/robot_radius: 0.19
- * /move_base/local_costmap/robot_radius: 0.19
- = (double, default: 0.46)  The radius of the robot in meters, this parameter should only be set for circular robots, all others should use the "footprint" parameter[5].
-
-    Set a lower value to match the project robot size.
-
- * /move_base/global_costmap/transform_tolerance: 0.4
- * /move_base/local_costmap/transform_tolerance: 0.4
- =  (double, default: 0.2) Specifies the delay in transform (tf) data that is tolerable in seconds. This parameter serves as a safeguard to losing a link in the tf tree while still allowing an amount of latency the user is comfortable with to exist in the system[5].
-
-    Set a little higher value to increase the system tolerable.
-
-
-
+#### 5. meshes folder
+It stores the laser and RBG-D camera dae files: hokuyo.dae and kinect.dae 
 
 ## Discussion
 
