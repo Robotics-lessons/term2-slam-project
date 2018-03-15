@@ -262,9 +262,11 @@ Same robot navigated two different maps to generate 2D/3D maps.
 | <img src="images/rviz-kitchen-dining-w1.png" width="90%" height="40%" title="Kitchen Dinning "> | <img src="images/rviz-room-object-w1.png" width="90%" height="40%" title="Rooms Objects"> |
 | <img src="images/dbView-kitchen-1.png" width="100%" height="40%" title="Kitchen Dinning "> | <img src="images/dbView-rooms-1.png" width="100%" height="40%" title="Rooms Objects"> |
 
+### Topic List
 
 ### Testing results
-#### A robot navigated in two maps and generated .
+#### A robot navigated in two maps and generated  2D/3D maps in rtabmap_databaseView program.
+#### List these data which collected from rtabmap_databaseView screen:
 | | Kitchen Dining | Rooms Objects |
 | :--- | :--- | :--- |
 | Path length (m) | 131.205 | 243.398 |
@@ -276,34 +278,21 @@ Same robot navigated two different maps to generate 2D/3D maps.
 | Local loop closure by space | 151 | 54 |
 | User loop closure | 0 | 101 |
 
-The navigation trajectory for both robots is a green line route, the robots arrived to the goal in the end. 
-The problem is that robots need to go up then make a cycle turn first in the map (Figure 1) and this cycle turn routing wasted time.
-The better navigation approach is followed red line, it goes to the target position directly.  
-Anther problem is the robot stuck on the wall in several testings. The program needs to restart to solve this issue.
-
-
-
-####  Figure 1.   <img src="images/new_map.PNG" width="50%" height="50%" title="Maze Map">
 
 
 ## Discussion
 
-* Adjusting the parameter is a big challenge and time consuming job. Those parameters can be changed independently, but they are related eachother. It is impossible that one person tries all possible combination values for all parameters in limited time. A team work needs to assign for achieving the best result.
+* The final results are not sitisfied, the border in graph view is not very clear, Occupancy Grid view is not look as expected.
+I couldn't find where is the problem and need help.
 
-* AMCL would'n work well for the kidnapped robot problem. The data from laser sensor can help to detect the current new location again, but it is not guarantee that robot gets correct location or takes too long to find a new position.
-
-* A moving robot with MCL/AMCl algorithm can be used warehouse industry to move and delivery good inside the warehouse. This job and working environment have clear start and end positions. 
+* Need to add after I get a satisfied results.
 
 
 
 
 ## Future Work
 
-* Both robots started forward to dead end direction, then turned back to reverse point (Figure 1). The further study needs to involve to find out this is an algorithm issue or parameter turning problem.
-
-* Additional sensor can be added on back of the robot, so the robot can go back and forth without rotating to navigate to the target position.
-
-* Adjusting and trying different parameters are very man power cost work, a database can be built to store these test parameter and result timing data to help adjusting the parameters in the new robots, and use Deep Learning technology to figure out and generate these parameters automatically.
+* Not finish
 
 
 
@@ -315,13 +304,4 @@ Anther problem is the robot stuck on the wall in several testings. The program n
 
 [3] Introlab, "RTAB-Map" http://introlab.github.io/rtabmap/ 2017
 
-[4] Wikipedia, "Monte Carlo localization" https://en.wikipedia.org/wiki/Monte_Carlo_localization 2018
 
-[5] wiki.ROS.ORG, "Documentation" http://wiki.ros.org/  2018
-
-[6] R. Siegwart, "Mobile Robot Localization" http://www.cs.cmu.edu/~rasc/Download/AMRobots5.pdf 2002
-
-[7] Zuozhi Yang and Todd W. Neller, "A Monte Carlo Localization Assignment
-Using a Neato Vacuum with ROS" https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/15025/13983 2017
-
-[8] wikibooks.org , "Robotics/Navigation/Localization" https://en.m.wikibooks.org/wiki/Robotics/Navigation/Localization 
