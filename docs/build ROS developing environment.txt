@@ -3,8 +3,6 @@ $ cd ~/catkin_ws/src
 $ catkin_init_workspace
 $ cd ..
 $ catkin_make
-(If this error: "ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'"
-use this: $pip install catkin_pkg to fix it)
 
 $ sudo apt-get update
 
@@ -30,25 +28,12 @@ cd ~/catkin_ws/src && git clone https://github.com/introlab/rtabmap_ros
 Download :
 wget https://s3-us-west-1.amazonaws.com/udacity-robotics/Term+2+Resources/P3+Resources/Student+Project+Materials.zip
 
-$catkin_make
-($pip install rospkg, if you see error: "ModuleNotFoundError: No module named 'rospkg'")
-($pip uninstall em && pip install empy, if you see error: "ModuleNotFoundError: No module named 'em'")
-
-Install command:
-================
-
-sudo apt-get update
-
-sudo apt-get install rviz
 
 Execute command:
 ================
-~/catkin_ws/src/slam_project/scripts/rtab_run  (For kitchen and dinning world)
+~/catkin_ws/src/slam_project/scripts/rtab_run   (for kitchen and dinning world)
 
-~/udacity/catkin_ws/src/term2-slam-project/slam_project/scripts/rtab_run
-
-
-~/catkin_ws/src/slam_project/scripts/rtab_run1  (For rooms and objects world)
+~/catkin_ws/src/slam_project/scripts/rtab_run1 (for my new world)
 
 roslaunch slam_project world.launch world_file:=/home/robond/catkin_ws/src/slam_project/worlds/kitchen_dining.world
 
@@ -76,10 +61,6 @@ rtabmap-databaseViewer ~/.ros/rtabmap.db
 
 rosrun rtabmap_ros rtabmap --params | grep Proximity
 
-rospack find rviz
-
-nvidia-smi
-
 Build a new map:
 ================
 
@@ -92,5 +73,33 @@ Fixed this error:
 rtabmap-databaseViewer: error while loading shared libraries: librtabmap_gui.so.0.15: cannot open shared object file: No such file or directory
 
 sudo ldconfig
+
+Github command:
+===============
+
+git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch databaseView/rtabmap-1.db' \
+--prune-empty --tag-name-filter cat -- --all
+
+
+Ubuntu Zip command:
+===================
+
+sudo apt-get install zip gzip tar
+
+zip -r my_arch.zip my_folder
+
+unzip my_arch.zip
+
+tar -cvzf may_arch.tar.gz my_folder
+
+where
+
+-c means "create"
+-v means "verbose" (sometimes bothersome and slowing down...)
+-z means "use (GNU)zip"
+-f XYZ declares the name of the output file. (You should chose a helping name like XYZ.tar.gz)
+
+tar -xvzf may_arch.tar.gz
 
 
