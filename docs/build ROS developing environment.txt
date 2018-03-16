@@ -81,6 +81,10 @@ git filter-branch --force --index-filter \
 'git rm --cached --ignore-unmatch databaseView/rtabmap-1.db' \
 --prune-empty --tag-name-filter cat -- --all
 
+git rm [file name]
+git rm -r [folder name]
+git commit -m "remove file1.txt"
+git push origin master
 
 Ubuntu Zip command:
 ===================
