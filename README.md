@@ -1,5 +1,5 @@
 # Udacity Robotics Software Engineer Project
-## Term2 SLAM project Lab
+## Term 2 SLAM project Lab
 
 ## Abstract
 This project created the 2D occupancy grid and 3D octomap from a provided kitchen-dinning and auther created rooms-objects simulated environment. It used RTAB-Map package, the best solution for simultaneous localization and mapping (SLAM) algorithm, to develop robots that can map environments in ROS. The results for both   simulated environments will be disciussed in this article.
@@ -39,37 +39,13 @@ The grid mapping algorithm can model the environment using grid maps without pre
 
 These three different techniques are used to adapt FastSLAM to grid mapping:
 1. Sampling Motion 
--p(x_{t} | x_{t-1}^{[k]} , u_{t})p(x 
-t
-​	 ∣x 
-t−1
-[k]
-​	 ,u 
-t
-​	 ): 
+-p(x_{t} | x_{t-1}^{[k]} , u_{t})p(x t ∣x t−1 [k]  ,u  t ): 
 Estimates the current pose given the k-th particle previous pose and the current controls u.
 2. Map Estimation
--p(m_{t} | z_{t}, x_{t}^{[k]} , m_{t-1}^{[k]})p(m 
-t
-​	 ∣z 
-t
-​	 ,x 
-t
-[k]
-​	 ,m 
-t−1
-[k]
-​	 ): 
+-p(m_{t} | z_{t}, x_{t}^{[k]} , m_{t-1}^{[k]})p(m t ∣z t ,x t [k] ,m  t−1 [k] ): 
 Estimates the current map given the current measurements, the current k-th particle pose, and the previous k-th particle map
 3. Importance Weight
--p(z_{t} | x_{t}^{[k]} , m^{[k]})p(z 
-t
-​	 ∣x 
-t
-[k]
-​	 ,m 
-[k]
- ): 
+-p(z_{t} | x_{t}^{[k]} , m^{[k]})p(z t ∣x  t [k] ,m [k] ): 
  Estimates the current likelihood of the measurement given the current k-th particle pose and the current k-th particle map.
 
 
@@ -144,7 +120,7 @@ It stores these world files:
 It stores these launch files: 
 
   I. world.launch, world2.launch: 
-    
+​    
         <launch>
           <include file="$(find slam_project)/launch/robot_description.launch"/>
             <arg name="world" default="empty"/> 
@@ -153,7 +129,7 @@ It stores these launch files:
             <arg name="gui" default="true"/>
             <arg name="headless" default="false"/>
             <arg name="debug" default="false"/>
-
+    
           <include file="$(find gazebo_ros)/launch/empty_world.launch">
             <!--arg name="world_name" value="$(find slam_project)/worlds/new_building.world"/-->
             <arg name="paused" value="$(arg paused)"/>
@@ -162,13 +138,13 @@ It stores these launch files:
             <arg name="headless" value="$(arg headless)"/>
             <arg name="debug" value="$(arg debug)"/>
           </include>
-
+    
           <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model slam_project"/>
         </launch>
 
 
   II. mapping.launch 
-    
+​    
         <launch>
           <arg name="database_path"     default="rtabmap.db"/>
           <arg name="rgb_topic"   default="/camera/rgb/image_raw"/>
@@ -223,19 +199,19 @@ It stores these launch files:
             </node>
           </group>
        </launch>
- 
- 
+
+
   III. teleop.launch 
-  
+
       <launch>
         <node pkg="slam_project" type="teleop.py" name="teleop"  output="screen">
   	       <remap from="teleop/cmd_vel" to="/cmd_vel"/>
         </node>
       </launch>
-      
-      
+
+
   IV. rviz.launch:
-  
+
      <launch>
        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find slam_project)/launch/config/robot_slam.rviz"/>
      </launch>
@@ -343,17 +319,26 @@ Same robot navigated two different maps to generate 2D/3D maps.
 
 ## Discussion
 
-* The final results are not sitisfied, the border in graph view is not very clear, Occupancy Grid view is not look as expected.
-I couldn't find where is the problem and need help.
+* The debug tools are very useful in developing process
 
-* Need to add after I get a satisfied results.
+  * rosrun tf view_frames: It can create and review tf-tree diagram to make sure that all of the links are in proper order.
+  * rosrun rqt_graph rqt_graph:  It can help to diagnose the system when it might not be behaving as expecting.
+  * roswtf: It will examine and analyze the setup, including any running nodes and environment variables, and warn about any potential issues or errors.
+  * rqt_console: It allows to aggregates and sort all of the log messages.
+
+* RBG-D camera needs to rotate 90 degree on x and z axis to make the camera vision at normal human vision view.
+
+* The final results are not satisfied, the border in graph view is not very clear, Occupancy Grid view is not look as expected. I couldn't find where is the problem and need help.
+
+  ​
 
 
 
 
 ## Future Work
 
-* Not finish
+* Use keyboard to control the robot moving is not an easy job, the joystick or control program will be used in future development.
+* Deploy this project on a real robot with kinect RGB-D camera and  Jetson TX2 platform to test a real world environment.
 
 
 
